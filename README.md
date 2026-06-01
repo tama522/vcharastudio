@@ -1,10 +1,20 @@
 # VcharaStudio
 
+[![CI](https://github.com/tama522/vcharastudio/actions/workflows/ci.yml/badge.svg)](https://github.com/tama522/vcharastudio/actions/workflows/ci.yml)
+
 VcharaStudio is a Cloudflare-oriented Next.js app for creating original character references, generating compositions, and saving generated assets per user.
 
 The public version is intentionally configured as a template. It does not include private environment files, runtime image data, Cloudflare account IDs, production secrets, or a hosted public demo.
 
 Image generation is designed around a user-owned local Codex worker. This repository does not include a hosted image-generation backend or a shared OpenAI API key flow.
+
+![VcharaStudio home screen](public/screenshots/home.png)
+
+## Project Status
+
+VcharaStudio is an early open-source template release. The current focus is making the local setup, Cloudflare deployment path, and user-owned Codex worker flow easy to understand and adapt.
+
+The project is useful as a starting point for developers who want to build privacy-conscious character reference and image composition tools without shipping a shared hosted image-generation backend.
 
 ## Features
 
@@ -136,6 +146,10 @@ There is no hosted public demo in this repository. Each deployment owner must pr
 - `pnpm cf:build` - build for Cloudflare with OpenNext
 - `pnpm cf:preview` - preview the Cloudflare build locally
 - `pnpm cf:deploy` - deploy through OpenNext Cloudflare
+
+## Roadmap
+
+See [ROADMAP.md](ROADMAP.md) for planned improvements and contribution areas.
 
 ## Public Snapshot Notes
 

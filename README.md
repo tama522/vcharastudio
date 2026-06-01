@@ -31,24 +31,46 @@ Image generation is designed around a user-owned local Codex worker. This reposi
 ## Requirements
 
 - Node.js 20 or newer
-- pnpm
+- pnpm 10.x
 - Cloudflare account for D1/R2/Workers deployment
 - Google OAuth client for sign-in
 
 ## Local Setup
 
+This path lets you explore the app locally without Google OAuth. It creates a local D1 database and uses a fixed local development user.
+
 ```bash
+corepack enable
 pnpm install
 cp .env.example .env.local
 pnpm exec wrangler d1 migrations apply VCHARA_DB --local --config wrangler.jsonc
 pnpm dev
 ```
 
+In `.env.local`, set:
+
+```bash
+LOCAL_DEV_AUTH_ENABLED="true"
+```
+
 Open `http://localhost:3000`.
 
-For local-only testing without Google OAuth, set `LOCAL_DEV_AUTH_ENABLED=true` in `.env.local`. Do not enable local development sign-in in production.
+Do not enable local development sign-in in production. Loopback hosts such as `localhost` and `127.0.0.1` can use local sign-in directly. For LAN testing, also set `LOCAL_DEV_AUTH_SECRET` and pass it through the sign-in URL as `devSecret`.
 
 Generated images require a local Codex worker connected from the Codex Worker Setup screen. The app can be explored without that worker, but generation jobs will not complete until a worker is running.
+
+## What Works Locally
+
+After local setup, you can:
+
+- Sign in with the local development user
+- Create and edit character drafts
+- Import existing character references
+- Open the generation studio and create queued jobs
+- Review album, trash, and source-group UI after jobs have results
+- Create a Codex worker token from the Codex Worker Setup screen
+
+Image generation completes only after you start a local Codex worker with the command shown in the app.
 
 ## Environment
 
@@ -74,7 +96,14 @@ CODEX_WORKER_TOKEN_TTL_DAYS="30"
 
 1. Create a D1 database.
 2. Create an R2 bucket.
-3. Copy `wrangler.jsonc` and replace the placeholder D1 database ID, bucket name, worker URL, and service name.
+3. Update `wrangler.jsonc`:
+   - `name`
+   - `database_name`
+   - `database_id`
+   - `bucket_name`
+   - `service`
+   - `NEXT_PUBLIC_SITE_URL`
+   - `NEXTAUTH_URL`
 4. Set Worker secrets:
 
 ```bash
@@ -96,6 +125,8 @@ pnpm exec wrangler d1 migrations apply VCHARA_DB --remote --config wrangler.json
 pnpm cf:build
 pnpm cf:deploy
 ```
+
+There is no hosted public demo in this repository. Each deployment owner must provide their own Cloudflare resources, Google OAuth client, and local Codex worker process.
 
 ## Scripts
 
@@ -138,6 +169,8 @@ The app can create a per-user worker token from the Codex connection screen. The
 This is a local-owner workflow, not a hosted generation service. Each deployment owner is responsible for running and securing their own worker process.
 
 Treat the worker token like an API key. It can access the owning user's queued jobs and source assets.
+
+The worker command assumes the Codex app CLI is available at the default macOS app path. If your Codex CLI is elsewhere, set `LOCAL_CODEX_CLI_PATH` before starting the worker.
 
 ## Security Notes
 

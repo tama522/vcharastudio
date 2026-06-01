@@ -1,0 +1,24 @@
+<svg width="959" height="1098" viewBox="0 0 959 1098" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Default Character Placeholder</title>
+  <desc id="desc">A simple abstract placeholder for the default character reference image.</desc>
+  <rect width="959" height="1098" fill="#f7f2ea"/>
+  <rect x="64" y="58" width="831" height="982" rx="32" fill="#fffaf3" stroke="#d6c9b8" stroke-width="4"/>
+  <rect x="110" y="110" width="300" height="820" rx="22" fill="#f0e7dc" stroke="#cbbdaa" stroke-width="3"/>
+  <rect x="550" y="110" width="300" height="820" rx="22" fill="#f0e7dc" stroke="#cbbdaa" stroke-width="3"/>
+  <rect x="426" y="150" width="108" height="108" rx="18" fill="#ede2d4" stroke="#cbbdaa" stroke-width="3"/>
+  <rect x="426" y="300" width="108" height="108" rx="18" fill="#ede2d4" stroke="#cbbdaa" stroke-width="3"/>
+  <rect x="426" y="450" width="108" height="108" rx="18" fill="#ede2d4" stroke="#cbbdaa" stroke-width="3"/>
+  <circle cx="260" cy="290" r="84" fill="#d9b59e"/>
+  <path d="M188 302c12-96 47-146 72-146s60 50 72 146v76c0 48-32 90-72 90s-72-42-72-90z" fill="#f0c9b4"/>
+  <path d="M178 304c22-118 142-118 164 0-51-22-110-22-164 0z" fill="#6f7d68"/>
+  <path d="M174 866c24-246 70-350 86-350s62 104 86 350z" fill="#9fb59c"/>
+  <circle cx="700" cy="290" r="84" fill="#d9b59e"/>
+  <path d="M628 302c12-96 47-146 72-146s60 50 72 146v76c0 48-32 90-72 90s-72-42-72-90z" fill="#f0c9b4"/>
+  <path d="M618 304c22-118 142-118 164 0-51-22-110-22-164 0z" fill="#6f7d68"/>
+  <path d="M614 866c24-246 70-350 86-350s62 104 86 350z" fill="#9fb59c"/>
+  <circle cx="480" cy="184" r="30" fill="#d9b59e"/>
+  <circle cx="480" cy="334" r="30" fill="#d9b59e"/>
+  <circle cx="480" cy="484" r="30" fill="#d9b59e"/>
+  <text x="480" y="966" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#4d463d">Default Character Placeholder</text>
+  <text x="480" y="1008" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#7b6f62">Replace this SVG with your own character reference.</text>
+</svg>

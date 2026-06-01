@@ -1,0 +1,39 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "vcharastudio",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-05-27",
+  "compatibility_flags": [
+    "nodejs_compat",
+    "global_fetch_strictly_public"
+  ],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "d1_databases": [
+    {
+      "binding": "VCHARA_DB",
+      "database_name": "vcharastudio",
+      "database_id": "replace-with-your-d1-database-id",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "VCHARA_ASSETS",
+      "bucket_name": "vcharastudio-assets"
+    }
+  ],
+  "services": [
+    {
+      "binding": "WORKER_SELF_REFERENCE",
+      "service": "vcharastudio"
+    }
+  ],
+  "vars": {
+    "NEXT_PUBLIC_SITE_URL": "https://your-worker.your-subdomain.workers.dev",
+    "NEXTAUTH_URL": "https://your-worker.your-subdomain.workers.dev",
+    "IMAGE_PROVIDER": "user-codex"
+  }
+}

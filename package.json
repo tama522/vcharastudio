@@ -1,0 +1,50 @@
+{
+  "name": "vcharastudio",
+  "version": "0.1.0",
+  "description": "Cloudflare-oriented Next.js template for character references and image composition.",
+  "license": "MIT",
+  "private": true,
+  "packageManager": "pnpm@10.12.4",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "pnpm codex:worker:embed && next dev",
+    "build": "pnpm codex:worker:embed && next build",
+    "cf:build": "opennextjs-cloudflare build && node scripts/sanitize-open-next-env.mjs",
+    "cf:preview": "pnpm cf:build && opennextjs-cloudflare preview",
+    "cf:deploy": "pnpm cf:build && opennextjs-cloudflare deploy",
+    "codex:worker:embed": "node scripts/embed-codex-worker-script.mjs",
+    "cf:typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "next": "16.2.6",
+    "next-auth": "^4.24.13",
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20260527.1",
+    "@opennextjs/cloudflare": "^1.19.11",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.6",
+    "tailwindcss": "^4",
+    "typescript": "^5",
+    "wrangler": "^4.95.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "defu": "6.1.7",
+      "effect": "3.21.2",
+      "postcss": "8.5.15",
+      "uuid": "11.1.1",
+      "ws": "8.21.0"
+    }
+  }
+}

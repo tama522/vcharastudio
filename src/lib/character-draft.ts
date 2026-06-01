@@ -1,0 +1,47 @@
+import type { CharacterDraftInput, CharacterSpec } from "@/lib/types";
+
+export function draftFromCharacter(character: CharacterSpec): CharacterDraftInput {
+  const parts = character.parts;
+
+  return {
+    name: character.name,
+    tagline: character.tagline,
+    story: character.story,
+    negativePrompt: character.negativePrompt,
+    outfitSelectionMode: parts.outfitSelectionMode,
+    sex: parts.sex,
+    ageGroup: parts.ageGroup,
+    genderPresentation: parts.genderPresentation,
+    facePreset: parts.facePreset,
+    bodyPreset: parts.bodyPreset,
+    customFields: { ...parts.customFields },
+    hairStyle: parts.hairStyle,
+    hairColor: parts.hairColor,
+    bangs: parts.bangs,
+    eyes: parts.eyes,
+    eyebrows: parts.eyebrows,
+    mouth: parts.mouth,
+    faceShape: parts.faceShape,
+    skinTone: parts.skinTone,
+    heightProfile: parts.heightProfile,
+    bodyType: parts.bodyType,
+    outfit: parts.outfit,
+    outfitMaterial: parts.outfitMaterial,
+    outfitPattern: parts.outfitPattern,
+    colorway: parts.colorway,
+    colorMode: parts.colorMode,
+    customColorPalette: { ...parts.colorPalette },
+    outerwear: parts.outerwear,
+    innerwear: parts.innerwear,
+    bottoms: parts.bottoms,
+    shoes: parts.shoes,
+    socks: parts.socks,
+    gloves: parts.gloves,
+    hat: parts.hat,
+    onePoint: parts.onePoint,
+    customMarkText: parts.customMarkText,
+    outfitDetailNotes: parts.outfitDetailNotes,
+    accessories: [...parts.accessories],
+    customAccessoryNotes: parts.customAccessoryNotes,
+  };
+}
